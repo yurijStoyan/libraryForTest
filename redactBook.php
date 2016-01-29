@@ -32,15 +32,13 @@ if ($result->num_rows > 0) {   	// if 1
 		$_SESSION['title'] = $title = $row['title'];
 		$year = $row['year'];		
 		$image = $row['image_path'];
+		$cat_id = $row['cat_id'];		
+		$cat_title = $row['cat_title'];	
 		
 		if ($row['image_path']) {
 		$image_path = $row['image_path'];
-		} else {$image_path = 'default.jpg';}
+		} else {$image_path = 'ser_img/default.jpg';}
 		}
-		
-		$cat_id = $row['cat_id'];		
-		$cat_title = $row['cat_title'];		
-		
 
 	} // end while
 } // end if 1
@@ -82,7 +80,7 @@ if ($result->num_rows > 0) {  	// if2
 		<select id="selectCat_menu" class="topP4Input" name="cat_id">
 		  	<?php for ($ccc = 0; $ccc < count($categoryTitle); ++$ccc) {
 				  echo '<option '; 
-				  if ($categoryJSON[$ccc] == $cat_title) {
+				  if ($categoryId[$ccc] == $cat_id) {
 					  echo 'selected'; };
 				  echo 'value="'.$categoryId[$ccc].'">'.$categoryTitle[$ccc].'</option>';}?>
 		  </select>
